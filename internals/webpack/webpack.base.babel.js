@@ -12,7 +12,7 @@ module.exports = options => ({
     {
       // Compile into js/build.js
       path: path.resolve(process.cwd(), 'build'),
-      publicPath: '/',
+      publicPath: '/learning-platform/',
     },
     options.output,
   ), // Merge with env dependent settings
@@ -113,6 +113,7 @@ module.exports = options => ({
     // drop any unreachable code.
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development',
+      PUBLIC_PATH: '/learning-platform/',
     }),
   ]),
   resolve: {
