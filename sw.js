@@ -2,7 +2,7 @@ var __wpo = {
   "assets": {
     "main": [
       "/favicon.ico",
-      "/runtime.5c7d47e0c5bb17b55e11.js",
+      "/runtime.93a53bc4c6586915b916.js",
       "/"
     ],
     "additional": [
@@ -42,16 +42,16 @@ var __wpo = {
     "7967e8526ccd76a800e5fd5567fd79ebfa778730": "/npm.react-intl.9b73b1821c03bf6c4c0c.chunk.js",
     "d27c354c2ca913e524522a13da2fa78143a83e4c": "/npm.react-redux.97e3c68cf48d6bcfd845.chunk.js",
     "b615692c31741c6ed7215e37834ecd844e021638": "/npm.swiper.3398d6e04e3d568ec95d.chunk.js",
-    "79233ac2ffa6ac6b3256346f707637d308981ccb": "/runtime.5c7d47e0c5bb17b55e11.js",
+    "179282a7b7cf535c2ad4f8934a273d3da9f4657f": "/runtime.93a53bc4c6586915b916.js",
     "290abb2eb472ad66fd761a002c949aad9767899a": "/14.706321a5fc30998eac9b.chunk.js",
     "60d77c4990f434b1b7d32d6fa8b21980df31b2d9": "/15.c4f3f7ec6bbf97ed4cd4.chunk.js",
     "90d7438a0d269ad3b31f65ad9fb85a12b71df8e7": "/16.22f88f500de2c99b529e.chunk.js",
     "73361e27c453f7b1dd0e0150c1885f3d324eeefa": "/17.d6848cc7cc19eb7fbec4.chunk.js",
-    "7d3f7fa841c81e6cf2b0654c8e4c4fd344d92e54": "/"
+    "c5b9020cb487fa5e11cfa16087505f4918880356": "/"
   },
   "strategy": "changed",
   "responseStrategy": "cache-first",
-  "version": "1/16/2022, 11:47:42 AM",
+  "version": "1/16/2022, 12:03:25 PM",
   "name": "webpack-offline",
   "pluginVersion": "5.0.6",
   "relativePaths": false
@@ -136,7 +136,7 @@ var __wpo = {
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
+/******/ 	__webpack_require__.p = "/learning-platform/";
 /******/
 /******/
 /******/ 	// Load entry module and return exports
