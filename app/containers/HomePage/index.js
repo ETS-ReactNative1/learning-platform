@@ -4,8 +4,9 @@
  * This is the first thing users see of our App, at the '/' route
  */
 
-import React, { useEffect, memo } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+// import React, { useEffect, memo } from 'react';
+// import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 // import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
@@ -71,48 +72,23 @@ export function HomePage() {
       </Helmet>
       <CentralWrapper>
         <Lesson />
-        {/* <CenteredSection>
-          <H2>
-            <FormattedMessage {...messages.startProjectHeader} />
-          </H2>
-          <p>
-            <FormattedMessage {...messages.startProjectMessage} />
-          </p>
-        </CenteredSection> */}
-        {/* <Section>
-          <H2>
-            <FormattedMessage {...messages.trymeHeader} />
-          </H2>
-          <Form onSubmit={onSubmitForm}>
-            <label htmlFor="username">
-              <FormattedMessage {...messages.trymeMessage} />
-              <AtPrefix>
-                <FormattedMessage {...messages.trymeAtPrefix} />
-              </AtPrefix>
-              <Input
-                id="username"
-                type="text"
-                placeholder="mxstbr"
-                value={username}
-                onChange={onChangeUsername}
-              />
-            </label>
-          </Form>
-          <ReposList {...reposListProps} />
-        </Section> */}
+        {/* <img
+          src="https://d1i7tcp6as38tg.cloudfront.net/cloudfront-test-imag.png"
+          alt="img"
+        /> */}
       </CentralWrapper>
     </article>
   );
 }
 
-HomePage.propTypes = {
-  loading: PropTypes.bool,
-  error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
-  repos: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
-  onSubmitForm: PropTypes.func,
-  username: PropTypes.string,
-  onChangeUsername: PropTypes.func,
-};
+// HomePage.propTypes = {
+//   loading: PropTypes.bool,
+//   error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
+//   repos: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
+//   onSubmitForm: PropTypes.func,
+//   username: PropTypes.string,
+//   onChangeUsername: PropTypes.func,
+// };
 
 const mapStateToProps = createStructuredSelector({
   repos: makeSelectRepos(),
@@ -138,5 +114,5 @@ const withConnect = connect(
 
 export default compose(
   withConnect,
-  memo,
+  // memo,
 )(HomePage);

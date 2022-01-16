@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const AudioCustom = styled.div`
   display: flex;
@@ -18,14 +19,26 @@ const AudioCustom = styled.div`
 `;
 
 function AudioWrapper(props) {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = React.createRef();
+
+  const playSound = () => {
+    if (!isPlaying) {
+      setIsPlaying(true);
+      audioRef.current.play();
+    } else {
+      setIsPlaying(false);
+    }
+  };
   return (
     <AudioCustom>
-      <audio src={props}>
+      <audio ref={audioRef}>
+        <source src={props.soundSrc} type="audio/mp3" />
         <track kind="captions" {...props} />
         Your browser does not support the
         <code>audio</code> element.
       </audio>
-      <button type="button">
+      <button type="button" onClick={() => playSound()}>
         <i className="far fa-play-circle" />
       </button>
       {/* <button type="button">
@@ -34,5 +47,9 @@ function AudioWrapper(props) {
     </AudioCustom>
   );
 }
+
+AudioWrapper.propTypes = {
+  soundSrc: PropTypes.string,
+};
 
 export default AudioWrapper;
