@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-import 'swiper/swiper.min.css';
-import 'swiper/modules/pagination/pagination.min.css';
+import 'swiper/swiper.scss';
+import 'swiper/modules/pagination/pagination.scss';
 import SoundImg from '../SoundImg';
 
 const SlideWrapper = styled.div`
