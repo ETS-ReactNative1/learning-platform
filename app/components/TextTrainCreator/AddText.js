@@ -21,7 +21,6 @@ const AddTextTextarea = styled.textarea`
   margin: 4px 0;
   margin-right: 8px;
   width: 100%;
-  display: flex;
   padding: 8px;
 `;
 

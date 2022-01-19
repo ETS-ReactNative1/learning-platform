@@ -6,7 +6,7 @@ import { ADD_TEXT } from '../types';
 
 const TextTrainCreatorState = ({ children }) => {
   const initialState = {
-    textItems: [],
+    textItems: ['erte'],
   };
 
   const [state, dispatch] = useReducer(TextTrainCreatorReducer, initialState);
