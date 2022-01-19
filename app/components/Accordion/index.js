@@ -51,7 +51,7 @@ A ja jestem - samochwała!"`,
 
 function Accordion() {
   const renderAccordionItems = () =>
-    items.map(v => <AccordionItem key={v.id} title={v.title} text={v.text} />);
+    items.map(v => <AccordionItem id={v.id} title={v.title} text={v.text} />);
 
   return <AccordionWrapper>{renderAccordionItems()}</AccordionWrapper>;
 }

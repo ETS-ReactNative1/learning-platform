@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -92,8 +92,14 @@ const AccordionItemWrapper = styled.div`
 function AccordionItem(props) {
   const [isClosed, setIsClosed] = useState(true);
 
+  useEffect(() => {
+    if (props.id === 1) {
+      setIsClosed(false);
+    }
+  }, []);
+
   return (
-    <AccordionItemWrapper key={props.key}>
+    <AccordionItemWrapper key={props.id}>
       <button
         type="button"
         onClick={() => {
@@ -123,7 +129,7 @@ function AccordionItem(props) {
 }
 
 AccordionItem.propTypes = {
-  key: PropTypes.string,
+  id: PropTypes.string,
   title: PropTypes.string,
   text: PropTypes.string,
 };
