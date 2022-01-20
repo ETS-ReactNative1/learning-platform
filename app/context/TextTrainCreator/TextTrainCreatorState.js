@@ -2,11 +2,12 @@ import React, { useReducer } from 'react';
 import PropTypes from 'prop-types';
 import { TextTrainCreatorContext } from './TextTrainCreatorContext';
 import { TextTrainCreatorReducer } from './TextTrainCreatorReducer';
-import { ADD_TEXT } from '../types';
+import { ADD_TEXT, ADD_WORDS_OBJECTS } from '../types';
 
 const TextTrainCreatorState = ({ children }) => {
   const initialState = {
-    textItems: ['erte'],
+    textString: 'dog cat coconut',
+    wordObjects: [],
   };
 
   const [state, dispatch] = useReducer(TextTrainCreatorReducer, initialState);
@@ -15,10 +16,19 @@ const TextTrainCreatorState = ({ children }) => {
     dispatch({ type: ADD_TEXT, payload: text });
   };
 
-  const { textItems } = state;
+  const addWordsObj = array => {
+    dispatch({
+      type: ADD_WORDS_OBJECTS,
+      payload: array,
+    });
+  };
+
+  const { textString, wordObjects } = state;
 
   return (
-    <TextTrainCreatorContext.Provider value={{ textItems, addNewText }}>
+    <TextTrainCreatorContext.Provider
+      value={{ textString, wordObjects, addNewText, addWordsObj }}
+    >
       {children}
     </TextTrainCreatorContext.Provider>
   );

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const TextItemWrapper = styled.div`
-  margin: 4px;
+  margin: 8px;
   position: relative;
   display: inline-block;
   color: #ffffff;
@@ -29,11 +29,11 @@ const TextItemWrapper = styled.div`
     position: absolute;
     background-color: #cccccc;
     border-radius: 50%;
-    font-size: 12px;
-    light-height: 12px;
+    font-size: 10px;
+    light-height: 10px;
     color: #000000;
     cursor: pointer;
-    padding: 4px 8px;
+    padding: 4px;
     display: none;
     right: -10px;
 
@@ -43,21 +43,21 @@ const TextItemWrapper = styled.div`
   }
 
   .TextItem__delete {
-    bottom: -10px;
+    bottom: -12px;
   }
 
   .TextItem__edit {
-    top: -10px;
+    top: -12px;
   }
 `;
 
-function TextItem(props) {
+function TextItem({ children }) {
   return (
     <TextItemWrapper>
       <button
         className="TextItem__delete"
         type="button"
-        onClick={(e) => {
+        onClick={e => {
           console.log(e.target);
         }}
       >
@@ -73,13 +73,13 @@ function TextItem(props) {
       >
         <i className="far fa-edit" />
       </button>
-      <p>{props.text}</p>
+      <p>{children}</p>
     </TextItemWrapper>
   );
 }
 
 TextItem.propTypes = {
-  text: PropTypes.string,
+  children: PropTypes.string,
 };
 
 export default TextItem;

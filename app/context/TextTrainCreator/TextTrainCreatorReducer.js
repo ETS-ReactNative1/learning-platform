@@ -1,10 +1,14 @@
-import { ADD_TEXT } from '../types';
+import { ADD_TEXT, ADD_WORDS_OBJECTS } from '../types';
 
 const handlers = {
   DEFAULT: state => state,
   [ADD_TEXT]: (state, { payload }) => ({
     ...state,
-    textItems: [...state.textItems, payload],
+    textString: payload,
+  }),
+  [ADD_WORDS_OBJECTS]: (state, { payload }) => ({
+    ...state,
+    wordObjects: payload,
   }),
 };
 
