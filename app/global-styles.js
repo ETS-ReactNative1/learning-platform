@@ -13,19 +13,25 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body.fontLoaded {
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 400;
   }
 
   #app {
     background-color: #fafafa;
-    min-height: 100%;
+    height: 100%;
     min-width: 100%;
   }
 
   p,
   label {
-    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Source Code Pro', monospace;
     line-height: 1.5em;
+  }
+
+  button {
+    font-weight: 700;
+    font-family: 'Source Code Pro', monospace;
   }
 `;
 

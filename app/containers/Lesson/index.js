@@ -5,6 +5,7 @@ import LearningNewWords from '../../components/LearningNewWords';
 import Accordion from '../../components/Accordion';
 import TextTrainCreator from '../../components/TextTrainCreator';
 import TextTrainCreatorState from '../../context/TextTrainCreator/TextTrainCreatorState';
+import FillBlanks from '../../components/FillBlanksEx';
 
 const LessonWrapper = styled.div`
   font-family: 'Lobster', cursive;
@@ -37,7 +38,15 @@ function Lesson() {
           <Accordion />
         </section>
 
-        <TextTrainCreator />
+        <section>
+          <h2>Создаем упражнение</h2>
+          <TextTrainCreator />
+        </section>
+
+        <section>
+          <h2>Само упражнение</h2>
+          <FillBlanks />
+        </section>
       </LessonWrapper>
     </TextTrainCreatorState>
   );

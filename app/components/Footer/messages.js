@@ -1,21 +1,18 @@
-/*
- * Footer Messages
- *
- * This contains all the text for the Footer component.
- */
 import { defineMessages } from 'react-intl';
 
 export const scope = 'boilerplate.components.Footer';
 
 export default defineMessages({
-  licenseMessage: {
-    id: `${scope}.license.message`,
-    defaultMessage: 'This project is licensed under the MIT license.',
+  phone: {
+    id: `${scope}.phone`,
+    defaultMessage: '+7 915 032 4323',
   },
-  authorMessage: {
-    id: `${scope}.author.message`,
-    defaultMessage: `
-      Made with love by {author}.
-    `,
+  mail: {
+    id: `${scope}.mail`,
+    defaultMessage: 'ania@gmail.com',
+  },
+  contactsTitle: {
+    id: `${scope}.contactsTitle`,
+    defaultMessage: 'Контакты',
   },
 });

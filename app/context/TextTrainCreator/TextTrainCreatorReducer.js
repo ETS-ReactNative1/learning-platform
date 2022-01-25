@@ -1,15 +1,25 @@
-import { ADD_TEXT, ADD_WORDS_OBJECTS } from '../types';
+import { ADD_WORDS_TO_ARRAY } from '../types';
 
 const handlers = {
   DEFAULT: state => state,
-  [ADD_TEXT]: (state, { payload }) => ({
-    ...state,
-    textString: payload,
-  }),
-  [ADD_WORDS_OBJECTS]: (state, { payload }) => ({
-    ...state,
-    wordObjects: payload,
-  }),
+  [ADD_WORDS_TO_ARRAY]: (state, { payload }) => {
+    function wordsToArray() {
+      return payload
+        .split(' ')
+        .filter(v => v !== '')
+        .map((v, i) => ({
+          id: i,
+          rightValue: v,
+          trainValue: null,
+        }));
+    }
+
+    return {
+      ...state,
+      initialUserText: payload,
+      wordsArray: wordsToArray(),
+    };
+  },
 };
 
 export const TextTrainCreatorReducer = (state, action) => {

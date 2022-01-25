@@ -44,16 +44,18 @@ const TextItemWrapper = styled.div`
 
   .TextItem__delete {
     bottom: -12px;
+    margin: 0;
   }
 
   .TextItem__edit {
     top: -12px;
+    margin: 0;
   }
 `;
 
-function TextItem({ children }) {
+function TextItem({ children, wordId }) {
   return (
-    <TextItemWrapper>
+    <TextItemWrapper wordKey={wordId}>
       <button
         className="TextItem__delete"
         type="button"
@@ -80,6 +82,7 @@ function TextItem({ children }) {
 
 TextItem.propTypes = {
   children: PropTypes.string,
+  wordId: PropTypes.string,
 };
 
 export default TextItem;

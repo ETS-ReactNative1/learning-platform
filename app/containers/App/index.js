@@ -18,29 +18,40 @@ import Header from 'components/Header';
 import Footer from 'components/Footer';
 
 import GlobalStyle from '../../global-styles';
+import MainPage from '../MainPage';
+import Promo from '../../components/Promo';
 
 const AppWrapper = styled.div`
   margin: 0 auto;
   display: flex;
   min-height: 100%;
   flex-direction: column;
+
+  .content {
+    flex: 1 0 auto;
+  }
+
+  footer {
+    flex: 0 0 auto;
+  }
 `;
 
 export default function App() {
   return (
     <AppWrapper>
-      <Helmet
-        titleTemplate="%s - React.js Boilerplate"
-        defaultTitle="React.js Boilerplate"
-      >
-        <meta name="description" content="A React.js Boilerplate application" />
+      <Helmet titleTemplate="Polsky" defaultTitle="Polsky">
+        <meta name="description" content="Polsky" />
       </Helmet>
-      <Header />
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/features" component={FeaturePage} />
-        <Route path="" component={NotFoundPage} />
-      </Switch>
+      <div className="content">
+        <Header />
+        <Promo />
+        <Switch>
+          <Route exact path="/" component={MainPage} />
+          <Route path="/features" component={FeaturePage} />
+          {/* <Route path="/main" component={MainPage} /> */}
+          <Route path="" component={NotFoundPage} />
+        </Switch>
+      </div>
       <Footer />
       <GlobalStyle />
     </AppWrapper>

@@ -23,11 +23,11 @@ const TextCreatorWrapper = styled.div`
 `;
 
 function TextCreator() {
-  const { addNewText } = useContext(TextTrainCreatorContext);
+  const { wordsToArray } = useContext(TextTrainCreatorContext);
   const [value, setValue] = useState('');
 
   const pushNewText = () => {
-    addNewText(value);
+    wordsToArray(value);
     setValue('');
   };
 

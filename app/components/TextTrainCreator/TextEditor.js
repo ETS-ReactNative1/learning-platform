@@ -1,8 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { TextTrainCreatorContext } from '../../context/TextTrainCreator/TextTrainCreatorContext';
 import TextItem from './TextItem';
-// import UserTextToObjects from './UserTextToObjects';
 
 const TextEditorWrapper = styled.div`
   min-height: 200px;
@@ -25,22 +24,11 @@ const TextEditorWrapper = styled.div`
 `;
 
 function TextEditor() {
-  const { wordObjects } = useContext(TextTrainCreatorContext);
+  const { wordsArray } = useContext(TextTrainCreatorContext);
 
-  // if (textString.length !== 0) {
-  //   StringToArrayOfOb(textString);
-  // }
+  const renderEditableWords = () =>
+    wordsArray.map(v => <TextItem wordId={v.id}>{v.rightValue}</TextItem>);
 
-  // const renderText = () => {
-  //   const text = textString.split(' ').map(v => {
-  //     if (v.trim() !== '') {
-  //       return <TextItem>{v}</TextItem>;
-  //     }
-  //   });
-  //   return text;
-  // };
-
-  console.log(wordObjects);
   return (
     <TextEditorWrapper>
       <div>
@@ -49,7 +37,7 @@ function TextEditor() {
       </div>
 
       <div className="TextEditor__result">
-        {/* {textString.length > 0 && renderText()} */}
+        {wordsArray.length > 0 && renderEditableWords()}
       </div>
       <button type="button" onClick={() => console.log(1)}>
         Далее
