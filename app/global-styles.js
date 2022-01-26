@@ -30,8 +30,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   button {
-    font-weight: 700;
-    font-family: 'Source Code Pro', monospace;
+    font-family: inherit;
   }
 `;
 

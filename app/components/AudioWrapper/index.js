@@ -30,6 +30,7 @@ function AudioWrapper(props) {
       setIsPlaying(false);
     }
   };
+
   return (
     <AudioCustom>
       <audio ref={audioRef}>
@@ -41,9 +42,6 @@ function AudioWrapper(props) {
       <button type="button" onClick={() => playSound()}>
         <i className="far fa-play-circle" />
       </button>
-      {/* <button type="button">
-        <i className="far fa-stop-circle" />
-      </button> */}
     </AudioCustom>
   );
 }

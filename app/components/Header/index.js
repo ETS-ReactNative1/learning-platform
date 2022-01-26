@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 // import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 import CentralWrapper from '../CentralWrapper/CentralWrapper';
@@ -11,12 +12,13 @@ const HeaderWrapper = styled.header`
   background-color: rgb(26, 2, 103);
   padding: 16px 24px;
 
-  button {
+  a {
     background-color: rgb(236, 41, 107);
     padding: 8px 16px;
     border-radius: 5px;
     color: rgb(255, 255, 255);
     cursor: pointer;
+    text-decoration: none;
   }
 
   .Header__centralWrapper {
@@ -31,7 +33,9 @@ function Header() {
     <HeaderWrapper>
       <CentralWrapper className="Header__centralWrapper">
         <MainNavigation />
-        <button type="button">Тетрадь</button>
+        <Link to="/exercisebook" type="button">
+          Тетрадь
+        </Link>
       </CentralWrapper>
     </HeaderWrapper>
   );
