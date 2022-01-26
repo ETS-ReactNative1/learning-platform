@@ -99,7 +99,7 @@ function AccordionItem(props) {
   }, []);
 
   return (
-    <AccordionItemWrapper key={props.id}>
+    <AccordionItemWrapper>
       <button
         type="button"
         onClick={() => {
@@ -129,7 +129,7 @@ function AccordionItem(props) {
 }
 
 AccordionItem.propTypes = {
-  id: PropTypes.string,
+  id: PropTypes.number,
   title: PropTypes.string,
   text: PropTypes.string,
 };

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { FillBlanksExerciseContext } from '../../context/FillBlanksExercise/FillBlanksExerciseContext';
 
 const ShowingFinishWr = styled.div`
   display: flex;
@@ -17,7 +18,7 @@ const ShowingFinishWr = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    width: 90%;
+    width: 0%;
     height: 10px;
     border-radius: 5px;
     background: linear-gradient(
@@ -31,6 +32,10 @@ const ShowingFinishWr = styled.div`
       rgba(4, 234, 206, 1) 80%,
       rgba(4, 242, 64, 1) 80%
     );
+  }
+
+  span {
+    margin: 0 20px;
   }
 
   p {
@@ -53,14 +58,24 @@ const ShowingFinishWr = styled.div`
   }
 `;
 
-function ShowingFinish({ preparedness }) {
-  const [isFinished, setIsFinished] = useState(false);
+function ShowingFinish() {
+  const { blanksCount, filledBlanksCount } = useContext(
+    FillBlanksExerciseContext,
+  );
+
+  const isFinished = filledBlanksCount === blanksCount;
 
   return (
     <ShowingFinishWr>
       <div className="ShowingFinish__bottom-line">
-        <div className="ShowingFinish__result-line" />
+        <div
+          className="ShowingFinish__result-line"
+          style={{ width: `${(100 * filledBlanksCount) / blanksCount}%` }}
+        />
       </div>
+      <span>
+        сделано {filledBlanksCount} из {blanksCount}
+      </span>
 
       {!isFinished && <p>почти завершено...</p>}
     </ShowingFinishWr>

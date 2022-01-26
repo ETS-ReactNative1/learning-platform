@@ -27,8 +27,8 @@ const TextTrainCreatorState = ({ children }) => {
   );
 };
 
-TextTrainCreatorState.propTypes = {
-  children: PropTypes.func,
-};
+// TextTrainCreatorState.propTypes = {
+//   children: PropTypes.func,
+// };
 
 export default TextTrainCreatorState;

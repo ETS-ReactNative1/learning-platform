@@ -8,12 +8,12 @@ import { defineMessages } from 'react-intl';
 export const scope = 'boilerplate.components.Header';
 
 export default defineMessages({
-  phone: {
-    id: `${scope}.phone`,
-    defaultMessage: '+7 915 032 4323',
+  linkToExbook: {
+    id: `${scope}.linkToExbook`,
+    defaultMessage: 'Тетрадь',
   },
-  mail: {
-    id: `${scope}.mail`,
-    defaultMessage: 'ania@gmail.com',
+  linkToAccount: {
+    id: `${scope}.linkToAccount`,
+    defaultMessage: 'Аккаунт',
   },
 });

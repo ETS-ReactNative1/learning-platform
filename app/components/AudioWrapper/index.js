@@ -34,7 +34,7 @@ function AudioWrapper(props) {
   return (
     <AudioCustom>
       <audio ref={audioRef}>
-        <source src={props.soundSrc} type="audio/mp3" />
+        <source src={props.soundsrc} type="audio/mp3" />
         <track kind="captions" {...props} />
         Your browser does not support the
         <code>audio</code> element.
@@ -47,7 +47,7 @@ function AudioWrapper(props) {
 }
 
 AudioWrapper.propTypes = {
-  soundSrc: PropTypes.string,
+  soundsrc: PropTypes.string,
 };
 
 export default AudioWrapper;

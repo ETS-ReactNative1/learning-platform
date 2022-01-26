@@ -23,6 +23,7 @@ const CharWrapper = styled.div`
     margin: 0;
     color: orange;
     text-align: center;
+    font-family: 'Lobster', cursive;
   }
 `;
 
@@ -197,7 +198,7 @@ function Alphabet() {
       return (
         <CharWrapper key={v.id}>
           <p>{upperChar}</p>
-          <AudioWrapper soundSrc={v.sound} />
+          <AudioWrapper soundsrc={v.sound} />
         </CharWrapper>
       );
     });
