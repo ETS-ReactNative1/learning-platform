@@ -1,6 +1,6 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { FillBlanksExerciseContext } from '../../context/FillBlanksExercise/FillBlanksExerciseContext';
+import PropTypes from 'prop-types';
 import ShowingFinish from '../ShowingFinish';
 import BlankInput from './BlankInput';
 
@@ -14,30 +14,43 @@ const FillBlanksWrap = styled.div`
 `;
 
 const TrainingWord = styled.div`
-  margin: 8px;
-  font-size: 20px;
-  line-height: 22px;
-  font-family: 'Arial';
+  font-size: 22px;
+  line-height: 24px;
+  margin: 0 16px;
+  display: flex;
 
   span {
-    margin: 2px;
+    margin: 4px;
   }
 `;
 
-function FillBlanks() {
-  const { wordsByTeacher, addWordsByTeacher } = useContext(
-    FillBlanksExerciseContext,
-  );
+function FillBlanks({ exercise }) {
+  const wordsByTeacher = exercise.words;
 
-  useEffect(() => {
-    addWordsByTeacher();
-  }, []);
+  let blanksCount = 0;
+
+  const [filledBlanksCount, setFilledBlanksCount] = useState(0);
+
+  function increaseFilledBlanksCount() {
+    setFilledBlanksCount(filledBlanksCount + 1);
+  }
+  function decreaseFilledBlanksCount() {
+    setFilledBlanksCount(filledBlanksCount - 1);
+  }
 
   const createTrainingWord = (trainWord, word) =>
     trainWord.split('').map((v, i) => {
       if (v === '_') {
+        blanksCount += 1;
         const valueFromWord = word[i];
-        return <BlankInput key={`${i}input`} correctValue={valueFromWord} />;
+        return (
+          <BlankInput
+            key={`${i}input`}
+            correctValue={valueFromWord}
+            decreaseFilledBlanksCount={decreaseFilledBlanksCount}
+            increaseFilledBlanksCount={increaseFilledBlanksCount}
+          />
+        );
       }
       return <span key={`${i}word`}>{v}</span>;
     });
@@ -53,9 +66,16 @@ function FillBlanks() {
     <FillBlanksWrap>
       <p>Задание: Заполните пробелы в словах</p>
       <section>{renderWords()}</section>
-      <ShowingFinish />
+      <ShowingFinish
+        blanksCount={blanksCount}
+        filledBlanksCount={filledBlanksCount}
+      />
     </FillBlanksWrap>
   );
 }
+
+FillBlanks.propTypes = {
+  exercise: PropTypes.object,
+};
 
 export default FillBlanks;

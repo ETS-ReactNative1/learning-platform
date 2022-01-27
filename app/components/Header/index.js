@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 import CentralWrapper from '../CentralWrapper/CentralWrapper';
@@ -52,17 +52,25 @@ const HeaderWrapper = styled.header`
     justify-content: space-between;
     align-items: center;
   }
+
+  i {
+    color: rgb(255, 255, 255);
+  }
 `;
 
-function Header() {
+function Header({ openDrawer }) {
   const location = useLocation();
   const path = location.pathname;
+  const mode = window.outerWidth > 767 ? 'desktop' : 'mobile';
 
   const renderHeaderLink = () => {
     if (path === '/exercisebook') {
       return (
         <Link to="/account" className="Header__link Header__link--account">
-          <FormattedMessage {...messages.linkToAccount} />
+          {mode === 'desktop' && (
+            <FormattedMessage {...messages.linkToAccount} />
+          )}
+
           <i className="far fa-user-circle" />
         </Link>
       );
@@ -78,15 +86,21 @@ function Header() {
   return (
     <HeaderWrapper>
       <CentralWrapper className="Header__centralWrapper">
-        <MainNavigation />
+        {mode === 'desktop' ? (
+          <MainNavigation />
+        ) : (
+          <button type="button" onClick={() => openDrawer()}>
+            <i className="fas fa-bars" />
+          </button>
+        )}
         {renderHeaderLink()}
       </CentralWrapper>
     </HeaderWrapper>
   );
 }
 
-// Header.propTypes = {
-//   match: PropTypes.object,
-// };
+Header.propTypes = {
+  openDrawer: PropTypes.func,
+};
 
 export default Header;

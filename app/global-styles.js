@@ -4,6 +4,7 @@ const GlobalStyle = createGlobalStyle`
   html,
   body {
     height: 100%;
+    min-heigh: 100%;
     width: 100%;
     line-height: 1.5;
   }
@@ -18,9 +19,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #app {
-    background-color: #fafafa;
     height: 100%;
-    min-width: 100%;
+    min-heigh: 100%;
   }
 
   p,
@@ -31,6 +31,11 @@ const GlobalStyle = createGlobalStyle`
 
   button {
     font-family: inherit;
+  }
+
+  a,
+  button {
+    cursor: pointer;
   }
 `;
 

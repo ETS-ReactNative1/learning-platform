@@ -47,6 +47,14 @@ const PromoWrapper = styled.div`
     white-space: nowrap;
     width: 1px;
   }
+
+  @media (max-width: 767px) {
+    height: 100px;
+
+    h1 {
+      font-size: 1rem;
+    }
+  }
 `;
 
 function Promo() {

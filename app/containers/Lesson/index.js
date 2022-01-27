@@ -6,7 +6,6 @@ import Accordion from '../../components/Accordion';
 import TextTrainCreator from '../../components/TextTrainCreator';
 import TextTrainCreatorState from '../../context/TextTrainCreator/TextTrainCreatorState';
 import FillBlanks from '../../components/FillBlanks';
-import FillBlanksExerciseState from '../../context/FillBlanksExercise/FillBlanksExerciseState';
 
 const LessonWrapper = styled.div`
   padding: 16px;
@@ -18,9 +17,25 @@ const LessonWrapper = styled.div`
 `;
 
 function Lesson() {
+  const exercises = [
+    {
+      id: 1,
+      words: [
+        { id: 1, trainWord: 't_st', word: 'test' },
+        { id: 2, trainWord: 'te_t', word: 'test' },
+      ],
+    },
+    {
+      id: 2,
+      words: [
+        { id: 1, trainWord: 'a__a', word: 'ania' },
+        { id: 2, trainWord: 'a__em', word: 'artem' },
+      ],
+    },
+  ];
   return (
     <LessonWrapper>
-      <h2>Пробный урок</h2>
+      {/* <h2>Пробный урок</h2>
       <h3>Произношение. Звуки польского языка </h3>
       <section>
         <h2>Алфавит</h2>
@@ -42,13 +57,12 @@ function Lesson() {
         <TextTrainCreatorState>
           <TextTrainCreator />
         </TextTrainCreatorState>
-      </section>
+      </section> */}
 
       <section>
-        <h2>Само упражнение</h2>
-        <FillBlanksExerciseState>
-          <FillBlanks />
-        </FillBlanksExerciseState>
+        <h2>Грамматика</h2>
+        <FillBlanks exercise={exercises[0]} />
+        {/* <FillBlanks exercise={exercises[1]} /> */}
       </section>
     </LessonWrapper>
   );

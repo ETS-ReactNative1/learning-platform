@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { FillBlanksExerciseContext } from '../../context/FillBlanksExercise/FillBlanksExerciseContext';
+import PropTypes from 'prop-types';
 
 const ShowingFinishWr = styled.div`
   display: flex;
   align-items: center;
+  height: 50px;
 
   .ShowingFinish__bottom-line {
     position: relative;
@@ -58,11 +59,7 @@ const ShowingFinishWr = styled.div`
   }
 `;
 
-function ShowingFinish() {
-  const { blanksCount, filledBlanksCount } = useContext(
-    FillBlanksExerciseContext,
-  );
-
+function ShowingFinish({ blanksCount, filledBlanksCount }) {
   const isFinished = filledBlanksCount === blanksCount;
 
   return (
@@ -73,13 +70,19 @@ function ShowingFinish() {
           style={{ width: `${(100 * filledBlanksCount) / blanksCount}%` }}
         />
       </div>
-      <span>
-        сделано {filledBlanksCount} из {blanksCount}
-      </span>
 
-      {!isFinished && <p>почти завершено...</p>}
+      {!isFinished && (
+        <p>
+          заполнено {filledBlanksCount} \ {blanksCount}
+        </p>
+      )}
     </ShowingFinishWr>
   );
 }
+
+ShowingFinish.propTypes = {
+  blanksCount: PropTypes.number,
+  filledBlanksCount: PropTypes.number,
+};
 
 export default ShowingFinish;

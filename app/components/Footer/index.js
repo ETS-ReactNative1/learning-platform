@@ -1,16 +1,15 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
-
 import A from 'components/A';
+import CentralWrapper from '../CentralWrapper/CentralWrapper';
+
 // import LocaleToggle from 'containers/LocaleToggle';
 import messages from './messages';
 
 const FooterWrapper = styled.footer`
   background-color: rgb(26, 2, 103);
   padding: 16px 24px;
-  display: flex;
-  flex-direction: column;
   margin-top: 60px;
 
   h3 {
@@ -32,18 +31,20 @@ const FooterWrapper = styled.footer`
 
 function Footer() {
   return (
-    <FooterWrapper id="contacts-footer">
-      <h3>
-        <FormattedMessage {...messages.contactsTitle} />
-      </h3>
-      <A href="tel:+79150324323">
-        <FormattedMessage {...messages.phone} />
-      </A>
-      <A href="mailto:ania@gmail.com">
-        <FormattedMessage {...messages.mail} />
-      </A>
+    // <FooterWrapper id="contacts-footer">
+    <FooterWrapper>
+      <CentralWrapper>
+        <h3>
+          <FormattedMessage {...messages.contactsTitle} />
+        </h3>
+        <A href="tel:+79150324323">
+          <FormattedMessage {...messages.phone} />
+        </A>
+        <A href="mailto:ania@gmail.com">
+          <FormattedMessage {...messages.mail} />
+        </A>
 
-      {/* <section>
+        {/* <section>
 
       </section>
       <section>
@@ -57,6 +58,7 @@ function Footer() {
           }}
         />
       </section> */}
+      </CentralWrapper>
     </FooterWrapper>
   );
 }

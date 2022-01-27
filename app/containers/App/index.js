@@ -6,7 +6,7 @@
  * contain code that should be seen on all pages. (e.g. navigation bar)
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
@@ -20,6 +20,7 @@ import GlobalStyle from '../../global-styles';
 import MainPage from '../MainPage';
 import Promo from '../../components/Promo';
 import ExerciseBook from '../ExerciseBook';
+import Drawer from '../../components/Drawer';
 
 const AppWrapper = styled.div`
   margin: 0 auto;
@@ -37,13 +38,22 @@ const AppWrapper = styled.div`
 `;
 
 export default function App() {
+  const [isOpen, setIsOpen] = useState(false);
+  const openDrawer = () => {
+    setIsOpen(true);
+  };
+
+  const closeDrawer = () => {
+    setIsOpen(false);
+  };
+
   return (
     <AppWrapper>
       <Helmet titleTemplate="Polsky" defaultTitle="Polsky">
         <meta name="description" content="Polsky" />
       </Helmet>
       <div className="content">
-        <Header />
+        <Header openDrawer={openDrawer} />
         <Promo />
         <Switch>
           <Route exact path="/" component={MainPage} />
@@ -52,6 +62,7 @@ export default function App() {
           <Route path="" component={NotFoundPage} />
         </Switch>
       </div>
+      {isOpen && <Drawer closeDrawer={closeDrawer} />}
       <Footer />
       <GlobalStyle />
     </AppWrapper>
