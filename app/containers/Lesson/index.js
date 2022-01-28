@@ -40,30 +40,29 @@ function Lesson() {
       <section>
         <h2>Алфавит</h2>
         <Alphabet />
-      </section>
+      </section> */}
 
       <section>
         <h2>Учим новые слова</h2>
         <LearningNewWords />
       </section>
 
-      <section>
+      {/* <section>
         <h2>Читаем</h2>
         <Accordion />
-      </section>
+      </section> */}
 
-      <section>
+      {/* <section>
         <h2>Создаем упражнение</h2>
         <TextTrainCreatorState>
           <TextTrainCreator />
         </TextTrainCreatorState>
       </section> */}
 
-      <section>
+      {/* <section>
         <h2>Грамматика</h2>
         <FillBlanks exercise={exercises[0]} />
-        {/* <FillBlanks exercise={exercises[1]} /> */}
-      </section>
+      </section>  */}
     </LessonWrapper>
   );
 }

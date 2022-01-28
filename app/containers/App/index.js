@@ -39,6 +39,7 @@ const AppWrapper = styled.div`
 
 export default function App() {
   const [isOpen, setIsOpen] = useState(false);
+
   const openDrawer = () => {
     setIsOpen(true);
   };

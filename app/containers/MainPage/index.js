@@ -52,8 +52,8 @@ const MainPageWrapper = styled.div`
     }
 
     .MainPage__greeting {
-      width: 100%;
       min-width: 200px;
+      max-width: 100%;
       margin-left: 0;
       padding: 0;
       margin-top: 30px;

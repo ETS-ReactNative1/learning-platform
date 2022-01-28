@@ -5,61 +5,87 @@ import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import 'swiper/swiper.scss';
 import 'swiper/modules/pagination/pagination.scss';
 import SoundImg from '../SoundImg';
+import CentralWrapper from '../CentralWrapper/CentralWrapper';
 
 const SlideWrapper = styled.div`
-  background-color: #554da7;
   width: 100%;
-  height: 300px;
+  height: auto;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
 `;
 
 const SliderWrapper = styled.div`
-  width: 90%;
   margin: 0 auto;
 `;
 
-function LearningNewWords() {
-  return (
-    <SliderWrapper>
-      {/* <Pagination /> */}
-      <Swiper
-        modules={[Navigation, Pagination, Scrollbar, A11y]}
-        scrollbar={{ draggable: true }}
-        pagination={{ clickable: true }}
-        spaceBetween={0}
-        slidesPerView={1}
-        // onSlideChange={() => console.log('slide change')}
-        // onSwiper={swiper => console.log(swiper)}
-      >
-        <SwiperSlide>
-          <SlideWrapper>
-            <SoundImg />
-            <SoundImg />
-          </SlideWrapper>
-        </SwiperSlide>
+const slides = [
+  {
+    id: 1,
+    word: 'kawa',
+    imgSrc:
+      'https://d2pur3iezf4d1j.cloudfront.net/images/6fd84b8a838c43c4a84b44b08b10177e',
+  },
+  {
+    id: 2,
+    word: 'herbata',
+    imgSrc:
+      'https://d2pur3iezf4d1j.cloudfront.net/images/18a521f1507cb86689faa5b2e8277703',
+  },
+  {
+    id: 3,
+    word: 'chleb',
+    imgSrc:
+      'https://d2pur3iezf4d1j.cloudfront.net/images/c61a359a01c01fc19bbe6a21592db53b',
+  },
+  {
+    id: 4,
+    word: 'masło',
+    imgSrc:
+      'https://d2pur3iezf4d1j.cloudfront.net/images/337c00564c4379bdd167fa8598ff48c6',
+  },
+];
 
-        <SwiperSlide>
-          <SlideWrapper>
-            <SoundImg />
-            <SoundImg />
-          </SlideWrapper>
-        </SwiperSlide>
-        <SwiperSlide>
-          <SlideWrapper>
-            <SoundImg />
-            <SoundImg />
-          </SlideWrapper>
-        </SwiperSlide>
-        <SwiperSlide>
-          <SlideWrapper>
-            <SoundImg />
-            <SoundImg />
-          </SlideWrapper>
-        </SwiperSlide>
-      </Swiper>
-    </SliderWrapper>
+function renderSlides() {
+  return slides.map(v => (
+    <SwiperSlide key={v.id}>
+      <SlideWrapper>
+        <SoundImg imgSrc={v.imgSrc} word={v.word} />
+      </SlideWrapper>
+    </SwiperSlide>
+  ));
+}
+
+function LearningNewWords() {
+  const setSlidesQuantity = () => {
+    if (window.outerWidth < 768) {
+      return 1;
+    }
+
+    if (window.outerWidth > 768 && window.outerWidth < 880) {
+      return 2;
+    }
+
+    return 3;
+  };
+
+  const slidesQuantity = setSlidesQuantity();
+
+  return (
+    <CentralWrapper>
+      <SliderWrapper>
+        {/* <Pagination /> */}
+        <Swiper
+          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          scrollbar={{ draggable: true }}
+          pagination={{ clickable: true }}
+          spaceBetween={0}
+          slidesPerView={slidesQuantity}
+          // onSlideChange={() => console.log('slide change')}
+          // onSwiper={swiper => console.log(swiper)}
+        >
+          {slides.length !== 0 && renderSlides()}
+        </Swiper>
+      </SliderWrapper>
+    </CentralWrapper>
   );
 }
 

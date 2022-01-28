@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import MainNavigation from '../MainNavigation';
 
-const DrawerWrapper = styled.header`
+const DrawerWrapper = styled.div`
   position: fixed;
   padding: 16px;
   box-sizing: border-box;
@@ -13,6 +13,7 @@ const DrawerWrapper = styled.header`
   right: 0;
   bottom: 0;
   padding-top: 100px;
+  z-index: 100;
 
   button {
     position: absolute;
