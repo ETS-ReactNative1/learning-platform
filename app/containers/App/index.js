@@ -21,6 +21,7 @@ import MainPage from '../MainPage';
 import Promo from '../../components/Promo';
 import ExerciseBook from '../ExerciseBook';
 import Drawer from '../../components/Drawer';
+import LessonPage from '../LessonPage';
 
 const AppWrapper = styled.div`
   margin: 0 auto;
@@ -59,6 +60,7 @@ export default function App() {
         <Switch>
           <Route exact path="/" component={MainPage} />
           <Route exact path="/exercisebook" component={ExerciseBook} />
+          <Route path="/exercisebook/lesson/:title" component={LessonPage} />
           <Route path="/features" component={FeaturePage} />
           <Route path="" component={NotFoundPage} />
         </Switch>

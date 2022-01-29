@@ -2,12 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 import Tip from 'components/Tip';
 import AudioWrapper from '../AudioWrapper';
+import CentralWrapper from '../CentralWrapper/CentralWrapper';
 
 const AlpabetWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 800px;
   margin: 0 auto;
+
+  @media (max-width: 799px) {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 16px;
+  }
 `;
 
 const CharWrapper = styled.div`
@@ -21,9 +29,16 @@ const CharWrapper = styled.div`
 
   p {
     margin: 0;
-    color: orange;
+    color: rgb(234, 100, 148);
     text-align: center;
     font-family: 'Lobster', cursive;
+  }
+
+  @media (max-width: 799px) {
+    font-size: 2rem;
+    flex-grow: 1;
+    padding: 0;
+    min-width: 0;
   }
 `;
 
@@ -204,10 +219,10 @@ function Alphabet() {
     });
 
   return (
-    <div>
+    <CentralWrapper>
       <Tip />
       <AlpabetWrapper>{renderAlphabet()}</AlpabetWrapper>
-    </div>
+    </CentralWrapper>
   );
 }
 

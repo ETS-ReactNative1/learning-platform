@@ -22,7 +22,6 @@ import {
 } from 'containers/App/selectors';
 // import H2 from 'components/H2';
 // import ReposList from 'components/ReposList';
-import Lesson from '../Lesson';
 // import AtPrefix from './AtPrefix';
 // import CenteredSection from './CenteredSection';
 // import Form from './Form';
@@ -71,7 +70,6 @@ export function HomePage() {
         />
       </Helmet>
       <CentralWrapper>
-        <Lesson />
         {/* <img
           src="https://d1i7tcp6as38tg.cloudfront.net/cloudfront-test-imag.png"
           alt="img"

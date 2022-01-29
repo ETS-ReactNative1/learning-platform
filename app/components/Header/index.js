@@ -64,7 +64,7 @@ function Header({ openDrawer }) {
   const mode = window.outerWidth > 767 ? 'desktop' : 'mobile';
 
   const renderHeaderLink = () => {
-    if (path === '/exercisebook') {
+    if (path.includes(`/exercisebook/`)) {
       return (
         <Link to="/account" className="Header__link Header__link--account">
           {mode === 'desktop' && (
