@@ -5,11 +5,14 @@ import ShowingFinish from '../ShowingFinish';
 import BlankInput from './BlankInput';
 
 const FillBlanksWrap = styled.div`
+  margin: 40px 0;
+
   section {
     display: flex;
     margin: 16px 0;
-    border: 1px solid #cdcdcd;
     padding: 16px;
+    display: flex;
+    flex-wrap: wrap;
   }
 `;
 
@@ -18,6 +21,7 @@ const TrainingWord = styled.div`
   line-height: 24px;
   margin: 0 16px;
   display: flex;
+  margin: 8px;
 
   span {
     margin: 4px;
@@ -25,7 +29,7 @@ const TrainingWord = styled.div`
 `;
 
 function FillBlanks({ exercise }) {
-  const wordsByTeacher = exercise.words;
+  const wordsByTeacher = exercise;
 
   let blanksCount = 0;
 
@@ -64,7 +68,7 @@ function FillBlanks({ exercise }) {
 
   return (
     <FillBlanksWrap>
-      <p>Задание: Заполните пробелы в словах</p>
+      <h2>Грамматика</h2>
       <section>{renderWords()}</section>
       <ShowingFinish
         blanksCount={blanksCount}

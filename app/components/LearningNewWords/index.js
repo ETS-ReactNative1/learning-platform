@@ -20,6 +20,11 @@ const SlideWrapper = styled.div`
 
 const SliderWrapper = styled.div`
   margin: 0 auto;
+  margin-bottom: 60px;
+
+  h2 {
+    margin: 40px 0;
+  }
 `;
 
 function LearningNewWords({ words }) {
@@ -49,8 +54,8 @@ function LearningNewWords({ words }) {
 
   return (
     <CentralWrapper>
-      <h2>Учим новые слова</h2>
       <SliderWrapper>
+        <h2>Учим новые слова</h2>
         {/* <Pagination /> */}
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -69,7 +74,7 @@ function LearningNewWords({ words }) {
 }
 
 LearningNewWords.propTypes = {
-  words: PropTypes.object,
+  words: PropTypes.array,
 };
 
 export default LearningNewWords;

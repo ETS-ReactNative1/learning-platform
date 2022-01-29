@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const TipWrapper = styled.div`
   display: flex;
@@ -32,16 +33,36 @@ const TipWrapper = styled.div`
     color: #000;
   }
 
+  .fa-play-circle {
+    color: rgb(26, 2, 103);
+  }
+
   i {
     margin: 0 8px;
   }
 
   @media (max-width: 799px) {
     text-align: center;
+
+    span {
+      transform: translate(-15%, -50%);
+    }
+
+    .fa-play-circle {
+      font-size: 18px;
+    }
+
+    p {
+      padding: 8px;
+      padding-top: 16px;
+      width: 100%;
+      display: block;
+      font-size: 14px;
+    }
   }
 `;
 
-function Tip() {
+function Tip({ text }) {
   return (
     <TipWrapper>
       <p>
@@ -49,12 +70,15 @@ function Tip() {
           Совет
           <i className="far fa-lightbulb" />
         </span>
-        Нажми на
-        <i className="far fa-play-circle" />
-        под буквой, чтобы прослушать произношение
+
+        {text}
       </p>
     </TipWrapper>
   );
 }
+
+Tip.propTypes = {
+  text: PropTypes.string,
+};
 
 export default Tip;

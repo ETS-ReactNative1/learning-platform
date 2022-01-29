@@ -30,11 +30,11 @@ function LessonPage() {
       }
 
       if (v.type === 'reading') {
-        return <Accordion key={v.id} />;
+        return <Accordion key={v.id} items={v.data.texts} />;
       }
 
-      if (v.type === 'gramma') {
-        return <FillBlanks key={v.id} />;
+      if (v.type === 'grammar') {
+        return <FillBlanks key={v.id} exercise={v.data.words} />;
       }
 
       return <div>Кажется, такого еще нет...</div>;

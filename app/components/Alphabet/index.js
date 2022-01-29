@@ -218,9 +218,11 @@ function Alphabet() {
       );
     });
 
+  const advise = `Для прослушивания - жми на Play`;
+
   return (
     <CentralWrapper>
-      <Tip />
+      <Tip text={advise} />
       <AlpabetWrapper>{renderAlphabet()}</AlpabetWrapper>
     </CentralWrapper>
   );

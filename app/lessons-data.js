@@ -46,7 +46,47 @@ export const lessonsData = {
         caption: 'Читаем',
         data: {
           texts: [
-            { id: 1, caption: 'Jan Brzechwa - Samochwala', text: 'blablba' },
+            {
+              id: 1,
+              title: 'Jan Brzechwa - Samochwała',
+              text: `Samochwała w kącie stała
+            I wciąż tak opowiadała:
+            "Zdolna jestem niesłychanie,
+            Najpiękniejsze mam ubranie,
+            Moja buzia tryska zdrowiem,
+            Jak coś powiem, to już powiem,
+            Jak odpowiem, to roztropnie,
+            W szkole mam najlepsze stopnie,
+            Śpiewam lepiej niż w operze,
+            Świetnie jeżdżę na rowerze,
+            Znakomicie muchy łapię,
+            Wiem, gdzie Wisła jest na mapie,
+            Jestem mądra, jestem zgrabna,
+            Wiotka, słodka i powabna,
+            A w dodatku, daję słowo,
+            Mam rodzinę wyjątkową:
+            Tato mój do pieca sięga,
+            Moja mama - taka tęga
+            Moja siostra - taka mała,
+            A ja jestem - samochwała!"`,
+            },
+            {
+              id: 2,
+              title: 'Скороговорка 1',
+              text: `W Szczebrzeszynie chrząszcz brzmi w trzcinie`,
+            },
+            {
+              id: 3,
+              title: 'Скороговорка 2',
+              text:
+                'Czy rak trzyma w szczypcach strzęp szczawiu czy trzy części trzciny',
+            },
+            {
+              id: 4,
+              title: 'Скороговорка 3',
+              text:
+                'Król Karol kupił królowej Karolinie korale koloru koralowego',
+            },
           ],
         },
       },
@@ -55,11 +95,46 @@ export const lessonsData = {
         type: 'grammar',
         caption: 'Грамматика',
         data: {
-          texts: [
+          words: [
             {
               id: 1,
-              word: 'ogurek',
-              trainWord: 'og____',
+              word: 'dzień',
+              trainWord: 'd__eń',
+            },
+            {
+              id: 2,
+              word: 'dobry wieczór',
+              trainWord: 'dobr_ wiecz_r',
+            },
+            {
+              id: 3,
+              word: 'przepraszam',
+              trainWord: 'p__epra__am',
+            },
+            {
+              id: 4,
+              word: 'smacznego',
+              trainWord: 'sma__nego',
+            },
+            {
+              id: 5,
+              word: 'dobranoc',
+              trainWord: 'dobrano_',
+            },
+            {
+              id: 6,
+              word: 'dziękuję',
+              trainWord: 'dzi_kuj_',
+            },
+            {
+              id: 7,
+              word: 'cześć',
+              trainWord: 'cze_ć',
+            },
+            {
+              id: 8,
+              word: 'dzień dobry',
+              trainWord: 'd__eń dobry',
             },
           ],
         },

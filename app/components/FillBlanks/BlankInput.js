@@ -6,6 +6,7 @@ const BlankInputWrap = styled.div`
   position: relative;
   width: 30px;
   height: 30px;
+  margin: 0 2px;
 
   input {
     height: 100%;
@@ -76,7 +77,7 @@ const BlankInput = ({
 }) => {
   const [value, setValue] = useState('');
 
-  const isValid = value === correctValue;
+  const isValid = value.toLowerCase() === correctValue.toLowerCase();
 
   const isInputEmpty = value === '';
 

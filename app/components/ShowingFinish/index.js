@@ -57,10 +57,19 @@ const ShowingFinishWr = styled.div`
       opacity: 0.2;
     }
   }
+
+  @media (max-width: 767px) {
+    justify-content: center;
+    height: 20px;
+
+    .ShowingFinish__bottom-line {
+      width: 100%;
+    }
+  }
 `;
 
 function ShowingFinish({ blanksCount, filledBlanksCount }) {
-  const isFinished = filledBlanksCount === blanksCount;
+  // const isFinished = filledBlanksCount === blanksCount;
 
   return (
     <ShowingFinishWr>
@@ -71,11 +80,11 @@ function ShowingFinish({ blanksCount, filledBlanksCount }) {
         />
       </div>
 
-      {!isFinished && (
+      {/* {!isFinished && (
         <p>
           заполнено {filledBlanksCount} \ {blanksCount}
         </p>
-      )}
+      )} */}
     </ShowingFinishWr>
   );
 }
