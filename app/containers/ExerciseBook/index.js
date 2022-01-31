@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import CentralWrapper from '../../components/CentralWrapper/CentralWrapper';
+import DragDrop from '../../components/DragDrop';
 
 const ExerciseBookWrapper = styled.div`
   ul {
@@ -111,6 +112,8 @@ const ExerciseBook = () => {
         <h2>Упражнения по темам</h2>
         <ul> {renderLinksToLessons()}</ul>
       </ExerciseBookWrapper>
+
+      <DragDrop />
     </CentralWrapper>
   );
 };
