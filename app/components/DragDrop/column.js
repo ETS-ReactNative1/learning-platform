@@ -1,13 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-const Column = ({ title }) => {
+const ColumnWrapper = styled.div`
+`;
+
+const Title = styled.h3``;
+const List = styled.div``;
+
+const Column = ({ title, words }) => {
   console.log(4);
 
   return (
-    <div>
-      <h2>{title}</h2>
-    </div>
+    <ColumnWrapper>
+      <Title>{title}</Title>
+      <List>{words}</List>
+    </ColumnWrapper>
   );
 };
 

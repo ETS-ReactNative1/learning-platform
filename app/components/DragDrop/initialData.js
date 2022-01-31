@@ -6,7 +6,7 @@ const initialData = {
   columns: {
     1: {
       id: 1,
-      title: 'start',
+      title: 'Слова',
       wordIds: [1, 2],
     },
     2: {
