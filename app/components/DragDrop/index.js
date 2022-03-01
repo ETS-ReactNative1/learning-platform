@@ -1,31 +1,68 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { DragDropContext } from 'react-beautiful-dnd';
 import initialData from './initialData';
 import Column from './column';
-// import styled from 'styled-components';
 
 const DragDrop = () => {
-  const state = initialData;
+  const [state, setState] = useState(initialData);
 
-  const renderColumns = () =>
-    state.columnOrder.map(columnId => {
-      const column = state.columns[columnId];
-      const words = column.wordIds.map(wordId => state.words[wordId]);
+  const onDragStart = () => {
+    document.body.style.color = 'orange';
+  };
 
-      return (
-        <Column
-          key={column.id}
-          column={column}
-          title={column.title}
-          words={words}
-        />
-      );
-    });
+  const onDragEnd = result => {
+    const { destination, source, draggableId } = result;
+
+    if (!destination) {
+      return;
+    }
+
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.index === source.index
+    ) {
+      return;
+    }
+
+    const column = state.columns[source.droppableId];
+    const newWordIds = Array.from(column.WordIds);
+    newWordIds.splice(source.index, 1);
+    newWordIds.splice(destination.index, 0, draggableId);
+
+    const newColumn = {
+      ...column,
+      wordIds: newWordIds,
+    };
+
+    const newState = {
+      ...state,
+      columns: {
+        ...state.columns,
+        [newColumn.id]: newColumn,
+      },
+    };
+
+    setState(newState);
+  };
 
   return (
-    <div>
-      <h2>DragDrop</h2>
-      {renderColumns()}
-    </div>
+    <DragDropContext onDragEnd={onDragEnd} onDragStart={onDragStart}>
+      {state.columnOrder.map((columnId, index) => {
+        const column = state.columns[columnId];
+        const words = column.wordIds.map(wordId => state.words[wordId]);
+
+        return (
+          <Column
+            index={index}
+            key={column.id}
+            columnId={column.id}
+            column={column}
+            words={words}
+            title={column.title}
+          />
+        );
+      })}
+    </DragDropContext>
   );
 };
 

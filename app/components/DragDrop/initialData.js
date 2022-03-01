@@ -1,31 +1,33 @@
 const initialData = {
   words: {
-    1: { id: 1, word: 'test1' },
-    2: { id: 2, word: 'test2' },
+    '1': { id: '1', word: 'test1' },
+    '2': { id: '2', word: 'test2' },
+    '3': { id: '3', word: 'test3' },
+    '4': { id: '4', word: 'test4' },
   },
   columns: {
-    1: {
-      id: 1,
+    '1': {
+      id: '1',
       title: 'Слова',
       wordIds: [1, 2],
     },
-    2: {
-      id: 2,
+    '2': {
+      id: '2',
       title: 'женский род',
       wordIds: [],
     },
-    3: {
-      id: 3,
+    '3': {
+      id: '3',
       title: 'мужской род',
       wordIds: [],
     },
-    4: {
-      id: 4,
+    '4': {
+      id: '4',
       title: 'средний род',
       wordIds: [],
     },
   },
-  columnOrder: [1, 2, 3, 4],
+  columnOrder: ['1', '2', '3', '4'],
 };
 
 export default initialData;

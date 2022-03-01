@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import CentralWrapper from '../../components/CentralWrapper/CentralWrapper';
 import DragDrop from '../../components/DragDrop';
+import Puzzle from '../../components/Puzzle';
 
 const ExerciseBookWrapper = styled.div`
   ul {
@@ -114,6 +115,7 @@ const ExerciseBook = () => {
       </ExerciseBookWrapper>
 
       <DragDrop />
+      <Puzzle />
     </CentralWrapper>
   );
 };
